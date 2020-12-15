@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Таблицы Г.7 СП 16.13330.2011</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script type="text/javascript" src="js/gAnchor.js"></script>
+  </head>
+
+  <body>
+    <div id="tableG7" class="title05">
+      Расчётные споротивления растяжению фундаментных болтов
+      <script type="text/javascript">
+        newTable = document.getElementById("tableG7");
+        allTable =
+          '<table class="helpTable3"><tr><th rowspan="3">Наминальный<br> диаметр болтов,<br> мм</th><th colspan="2">Расчётные сопротивления R<sub>ba</sub>, Н/мм<sup>2</sup></th></tr><tr><th>по ГОСТ 535*</th><th>по ГОСТ 19281*</th></tr><tr><th>Ст3пс4, Ст3пс2, Ст3сп4, Ст3сп2</th><th>09Г2С-4, 09Г2С-6</th></tr>';
+        for (var i = 0; i < anchorArray.length; i += 3) {
+          allTable +=
+            "<tr><td>" +
+            anchorArray[i] +
+            "</td><td>" +
+            anchorArray[i + 1] +
+            "</td><td>" +
+            anchorArray[i + 2] +
+            "</td></tr>";
+        }
+        allTable += "</table>";
+        newTable.innerHTML += allTable;
+      </script>
+      <p class="title04">
+        СП 16.13330.2011 "Стальные конструкции", стр. 127, таблица Г.7
+      </p>
+    </div>
+    <br />
+  </body>
+</html>

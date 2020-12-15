@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Таблицы Г.7.1 СП 43.13330.2012</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <div id="tableG71" class="title05">
+      Таблица Г.1
+      <script type="text/javascript">
+        newTable = document.getElementById("tableG71");
+        allTable =
+          '<table class="helpTable3"><tr><th rowspan="2">Конструкция болта</th>' +
+          '<th rowspan="2">С отгибом</th><th colspan="2">С анкерной плитой</th><th rowspan="2">Прямой</th><th rowspan="2">Конический (распорный)</th></tr>' +
+          "<tr><th>глухой</th><th>съёмный</th></tr>";
+        allTable +=
+          "<tr><td>Диаметр (болта по резьбе) <i>d</i>, мм</td><td>12-48</td><td>12-140</td><td>56-125</td><td>12-48</td><td>6-48</td></tr>";
+        allTable +=
+          '<tr><td>Эскиз</td><td><img src="img/1.png" alt="С отгибом"/></td><td><img src="img/2.png" alt="Глухой с анкерной плитой"/></td>' +
+          '<td><img src="img/3.png" alt="Съёмный с анкерной плитой"/></td><td><img src="img/4.png" alt="Прямой"/></td>' +
+          '<td><img src="img/5.png" alt="Конический (распорный)"/></td></tr>';
+        allTable +=
+          "<tr><td>Минимальная глубина заделки <i>H</i></td><td>25 <i>d</i></td><td>15 <i>d</i></td><td>30 <i>d</i></td><td>10 <i>d</i></td><td>10 <i>d</i> (8 <i>d</i>)*</td></tr>";
+        allTable +=
+          "<tr><td>Наименьшее расстояние между болтами</td><td>6 <i>d</i></td><td>8 <i>d</i></td><td>10 <i>d</i></td><td>5 <i>d</i></td><td>8 <i>d</i></td></tr>";
+        allTable +=
+          "<tr><td>Наименьшее расстояние от оси болта до грани фундамента</td><td>4 <i>d</i></td><td>6 <i>d</i></td><td>6 <i>d</i></td><td>5 <i>d</i></td><td>8 <i>d</i></td></tr>";
+        allTable +=
+          "<tr><td>Коэффициент нагрузки &chi;</td><td>0.4</td><td>0.4</td><td>0.25</td><td>0.6</td><td>0.55</td></tr>";
+        allTable +=
+          "<tr><td>Коэффициент стабильности затяжки <i>k</i></td><td>1.9 (1.3)**</td><td>1.9 (1.3)</td><td>1.5</td><td>2.5 (2)</td><td>2.3 (1.8)</td></tr>";
+        allTable +=
+          '<tr><td colspan="6">* В скобках дана глубина заделки болтов диаметром менее 16 мм.<br>' +
+          "** В скобках приведены значения коэффициента <i>k</i> для статических нагрузок</td></tr>";
+
+        allTable += "</table>";
+        newTable.innerHTML += allTable;
+      </script>
+      <p class="title04">
+        СП 43.13330.2012 "Сооружения промышленных предприятий", таблица Г.7.1
+      </p>
+    </div>
+  </body>
+</html>

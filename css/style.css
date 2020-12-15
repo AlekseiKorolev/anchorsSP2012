@@ -1,0 +1,160 @@
+﻿/*печать*/
+@media print {
+  footer, header, #mierda, .menu1,.title01,.titleFooter, #console, .warningTitle { display: none; }
+}
+/*общие настройки страницы*/
+body {
+  font-family: 'Noto Sans', 'Calibri', 'Symbol'; /* шрифт страницы */
+  width:    700px; /* ширина заполнения страницы */
+  margin-left:  auto; /* автоматическое расположение от левого края */
+  margin-right: auto; /* автоматическое расопложение от правого края */
+  font-size:    12pt; /* размер шрифта по умолчанию */
+}
+/*заголовки*/
+header {
+  width:        700px;
+  margin-left:  auto;
+  margin-right: auto;
+  text-align:   center;
+  font-size:    xx-large;
+  color:        blue;
+  text-decoration: none;
+}
+.titleFooter {
+  font-size:    8pt;
+  color:        white;
+  text-align:   center;
+}
+.title01 {
+  font-weight: normal;
+  font-size:    18pt;
+  color:        black;
+  text-align:   center;
+  margin: 1em auto; /* графическое выделение заголовка от общего фона страницы */
+  padding: 1em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+}
+/*????*/.title02 {
+  font-size:    16pt;
+  color:        black;
+  text-align:   center;
+}
+.title03 {
+  font-size:    14pt;
+  color:        black;
+  text-align:   center;
+}
+.title04 {
+  font-size:    7pt;
+  color:        black;
+  text-align:   center;
+}
+.title05 {
+  font-size:    12pt;
+  color:        black;
+  text-align:   center;
+}
+.titleBAD {
+  color:        red;
+}
+.titleGOOD {
+  color:        green;
+}
+/*ссылки*/
+.mainHeader {
+  font-size: 10pt;
+  text-decoration: none
+}
+/*Блоки input*/
+.error {
+    background-color: red;
+}
+
+input {
+  width: 50px;
+  background-color: white;
+}
+.in2 {
+  width: 30px;
+}
+select {
+  width: 55px;
+}
+#alphaCheck, #pCheck {
+  width: 20px;
+}
+/*Блоки fildset*/
+fieldset {
+  border: 1px groove;
+  width: 135px;
+}
+/*Блоки div*/
+.warningTitle {
+  width: 70%;
+  margin-left:  auto;
+  margin-right: auto;
+  font-size: 10pt;
+  color: black;
+  text-align: center;
+  border: 1px dotted lightblue;
+  background-color: #e6f7ff;
+  padding: 1em;
+}
+.empty {
+  clear: both; /* отмена обтекания */
+}
+.leftDiv {
+ /*background-color: gray; /* Цвет фона слоя */
+ text-align: center;
+ padding: 5px; /* Поля вокруг текста */
+ float: left; /* Обтекание по правому краю */
+ width: 500px; /* ширина */
+}
+.rightDiv {
+ /*background-color: yellow; /* Цвет фона слоя */
+ padding: 5px; /* Поля вокруг текста */
+ float: right; /* Обтекание по правому краю */
+ width: 155px; /* ширина */
+}
+.helpTable3 {
+  text-align: center;
+  font-size: 13px;
+  width: 400px;
+  margin-left:  auto;
+  margin-right: auto;
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+.helpTable3 td {
+  border: 1px solid black;
+  /*width: 45px;*/
+}
+.helpTable3 th {
+  background: #D3E29D;
+  border: 1px solid black;
+  }
+/*пункты меню*/
+.menu1{
+    text-align: center;
+    width: 100%;
+}
+.mm1{
+    font-size: 13pt;
+    border: 1px solid #ebebeb;
+    background: white;
+}
+.mm2{
+    font-size: 13pt;
+    border: 1px solid #ebebeb;
+    background: #ebebeb;
+}
+.mm3{
+    font-size: 13pt;
+    border: 1px solid black;
+    background: #E3E3E3;
+}
+.rev {
+  font-size: 18pt;
+  text-decoration: none;
+  color: black;
+}

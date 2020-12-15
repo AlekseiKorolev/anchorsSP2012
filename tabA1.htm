@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Таблица А.1</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script type="text/javascript" src="js/gAnchor.js"></script>
+  </head>
+
+  <body>
+    <div id="table10" class="title05">
+      Расчетная площадь поперечного сечения шпилек нетто
+      <script type="text/javascript">
+        newTable = document.getElementById("table10");
+        allTable =
+          '<table class="helpTable3"><tr><th>Диаметр резьбы болтов <i>d</i></th><th>Расчётная площадь поперечного сечения болтов по резьбе <i>A<sub>as</sub></i>, см<sup>2</sup></th></tr>';
+        for (var i = 0; i < anchorArray3.length; i += 2) {
+          allTable +=
+            "<tr><td>" +
+            anchorArray3[i] +
+            "</td><td>" +
+            anchorArray3[i + 1] +
+            "</td></tr>";
+        }
+        allTable += "</table>";
+        newTable.innerHTML += allTable;
+      </script>
+      <p class="title04">
+        ГОСТ 24379.0-2012 "Болты фундаментные. Общие технические условия",
+        таблица А.1
+      </p>
+    </div>
+  </body>
+</html>

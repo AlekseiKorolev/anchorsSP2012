@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Расчёт анкерных болтов</title>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="Расчёты анкерных (фундаментных) болтов по СП43.13330.2012"
+    />
+    <meta
+      name="keywords"
+      content="расчет анкерных болтов, он-лайн расчет, on-line расчет, расчёт фундаментных болтов, СП43.13330.2012"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <script type="text/javascript" src="js/calc01.js"></script>
+    <script type="text/javascript" src="js/solid.js"></script>
+    <script type="text/javascript" src="js/gsolid.js"></script>
+    <script type="text/javascript" src="js/gsolid2.js"></script>
+    <script type="text/javascript" src="js/graph01.js"></script>
+    <script type="text/javascript" src="js/nosolid.js"></script>
+    <script type="text/javascript" src="js/gnosolid.js"></script>
+    <script type="text/javascript" src="js/gnosolid2.js"></script>
+    <script type="text/javascript" src="js/nocolon.js"></script>
+    <script type="text/javascript" src="js/gnocolon.js"></script>
+    <script type="text/javascript" src="js/gnocolon2.js"></script>
+    <script type="text/javascript" src="js/icons.js"></script>
+    <script type="text/javascript" src="js/gAnchor.js"></script>
+    <!-- База стали фунд болтов -->
+  </head>
+
+  <body>
+    <a href="../index.htm" class="mainHeader"><header>Расчёты</header></a><br />
+    <h1 class="title01">Расчёт анкерные болтов СП 43.13330.2012</h1>
+    <table class="menu1">
+      <tr>
+        <td
+          class="mm1"
+          id="colon"
+          onclick="menuClick(this)"
+          onmouseover="menuOver(this)"
+          onmouseout="menuOut(this)"
+        >
+          Для сплошных колонн
+        </td>
+        <td
+          class="mm1"
+          id="2colon"
+          onclick="menuClick(this)"
+          onmouseover="menuOver(this)"
+          onmouseout="menuOut(this)"
+        >
+          Для сквозных колонн
+        </td>
+        <td
+          class="mm1"
+          id="nocolon"
+          onclick="menuClick(this)"
+          onmouseover="menuOver(this)"
+          onmouseout="menuOut(this)"
+        >
+          Для крепления оборудования
+        </td>
+      </tr>
+    </table>
+
+    <div class="empty"></div>
+    <br />
+    <div id="prevDiv" class="warningTitle">Необходимо выбрать пункт</div>
+    <div id="mainDiv" hidden>
+      <div class="leftDiv">
+        <!-- Рисунок -->
+        <fieldset>
+          <legend>Рисунок</legend>
+          <canvas id="pict01" width="500px" height="540px">Рисунок</canvas>
+        </fieldset>
+      </div>
+      <div class="rightDiv">
+        <fieldset>
+          <legend>Усилия</legend>
+          <table>
+            <tr id="trN">
+              <td title="Нормальная сила" class="firstTd">N</td>
+              <td>
+                <input type="" id="N" oninput="CheckAll(this)" value="" />
+              </td>
+              <td class="secondTd">т</td>
+            </tr>
+            <tr id="trNmin">
+              <td
+                title="Минимальная нормальная сила от которой определяется сдвиговое усилие"
+                class="firstTd"
+              >
+                N<sub>min</sub>
+              </td>
+              <td>
+                <input type="" id="Nmin" oninput="CheckAll(this)" value="" />
+              </td>
+              <td class="secondTd">т</td>
+            </tr>
+            <tr id="trM">
+              <td title="Момент" class="firstTd">M</td>
+              <td>
+                <input type="" id="M" oninput="CheckAll(this)" value="" />
+              </td>
+              <td class="secondTd">т&middot;м</td>
+            </tr>
+            <tr>
+              <td
+                title="Горизонтальная сила в плоскости момента"
+                class="firstTd"
+                id="qxTD"
+              >
+                Q<sub>x</sub>
+              </td>
+              <td>
+                <input type="" id="Qx" oninput="CheckAll(this)" value="" />
+              </td>
+              <td class="secondTd">т</td>
+            </tr>
+            <tr id="trQy">
+              <td
+                title="Горизонтальная сила перпендикулярно плоскости момента"
+                class="firstTd"
+              >
+                Q<sub>y</sub>
+              </td>
+              <td>
+                <input type="" id="Qy" oninput="CheckAll(this)" value="" />
+              </td>
+              <td class="secondTd">т</td>
+            </tr>
+            <tr id="trPcheck">
+              <td class="firstTd">
+                <input type="checkbox" id="pCheck" onchange="InputAll()" />
+              </td>
+              <td>Нагр. на</td>
+              <td class="secondTd">болт</td>
+            </tr>
+            <tr id="trNoColon" hidden>
+              <td title="Расчётная нагрузка на болт" class="firstTd">P</td>
+              <td>
+                <input
+                  type=""
+                  id="pNoColon"
+                  oninput="CheckAll(this)"
+                  value=""
+                />
+              </td>
+              <td class="secondTd">т</td>
+            </tr>
+          </table>
+        </fieldset>
+        <fieldset id="fSize">
+          <legend>Размеры</legend>
+          <table>
+            <tr id="trh">
+              <td title="Расстояние между осями ветвей колонны" class="firstTd">
+                h
+              </td>
+              <td>
+                <input type="" id="h" oninput="CheckAll(this)" value="" />
+              </td>
+              <td class="secondTd">мм</td>
+            </tr>
+            <tr id="trb">
+              <td
+                title="Расстояние от центра тяжести сечения колонны до оси сжатой ветви"
+                class="firstTd"
+              >
+                b
+              </td>
+              <td>
+                <input type="" id="b" oninput="CheckAll(this)" value="" />
+              </td>
+              <td class="secondTd">мм</td>
+            </tr>
+            <tr id="trls">
+              <td title="Длина базы" class="firstTd">l<sub>s</sub></td>
+              <td>
+                <input type="" id="ls" oninput="CheckAll(this)" value="" />
+              </td>
+              <td class="secondTd">мм</td>
+            </tr>
+            <tr id="trbs">
+              <td title="Ширина базы" class="firstTd">b<sub>s</sub></td>
+              <td>
+                <input type="" id="bs" oninput="CheckAll(this)" value="" />
+              </td>
+              <td class="secondTd">мм</td>
+            </tr>
+            <tr id="trc">
+              <td
+                title="Расстояние от центра колонны до оси болта"
+                class="firstTd"
+              >
+                c
+              </td>
+              <td>
+                <input type="" id="c" oninput="CheckAll(this)" value="" />
+              </td>
+              <td class="secondTd">мм</td>
+            </tr>
+            <tr id="trn">
+              <td
+                title="Количество болтов на одной стороне"
+                class="firstTd"
+                id="nTitle"
+              >
+                n
+              </td>
+              <td>
+                <input type="" id="n" oninput="CheckAll(this)" value="" />
+              </td>
+              <td class="secondTd">шт</td>
+            </tr>
+            <tr id="try1">
+              <td
+                title="Расстояние от оси поворота до наиболее удалённого болта в растянутой зоне"
+                class="firstTd"
+                id="nTitle"
+              >
+                y<sub>1</sub>
+              </td>
+              <td>
+                <input type="" id="y1" oninput="CheckAll(this)" value="" />
+              </td>
+              <td class="secondTd">мм</td>
+            </tr>
+            <tr id="trSumyi">
+              <td
+                title="Сумма квадратов расстояний от оси поповрота до i-ого болта, при учёте как растянутых, так и сжатый болтов"
+                class="firstTd"
+              >
+                &sum;y<sub>i</sub><sup>2</sup>
+              </td>
+              <td>
+                <input type="" id="sumyi" oninput="CheckAll(this)" value="" />
+              </td>
+              <td class="secondTd">
+                м<sup>2</sup
+                ><a
+                  href="https://drive.google.com/open?id=0B4wo3L_4SnIETUR0aEt2RWlCems"
+                  target="_blank"
+                  >?</a
+                >
+              </td>
+            </tr>
+          </table>
+        </fieldset>
+        <fieldset>
+          <legend>Болты</legend>
+          <table>
+            <tr>
+              <td title="Диаметр болта" class="firstTd">Диаметр</td>
+              <td>
+                <select type="" id="diamA" onchange="InputAll()">
+                  <option>12</option>
+                  <option>16</option>
+                  <option>20</option>
+                  <option selected>24</option>
+                  <option>30</option>
+                  <option>36</option>
+                  <option>42</option>
+                  <option>48</option>
+                  <option>56</option>
+                  <option>64</option>
+                  <option>72</option>
+                  <option>80</option>
+                  <option>90</option>
+                  <option>100</option>
+                  <option>110</option>
+                  <option>125</option>
+                  <option>140</option>
+                </select>
+              </td>
+              <td class="secondTd">
+                <a href="tabG71.htm" target="_black">?</a>
+              </td>
+            </tr>
+            <tr>
+              <td title="Тип конструкции болта" class="firstTd">Тип</td>
+              <td>
+                <select
+                  type=""
+                  id="typeA"
+                  onchange="InputAll();checkType(this)"
+                >
+                  <option>с отгибом</option>
+                  <option selected>с анк.плитой глухой</option>
+                  <option>с анк.плитой съёмный</option>
+                  <option>прямой</option>
+                  <option>конический (распорный)</option>
+                </select>
+              </td>
+              <td class="secondTd">
+                <a href="tabG71.htm" target="_black">?</a>
+              </td>
+            </tr>
+            <tr>
+              <td title="Марка стали" class="firstTd">Сталь</td>
+              <td>
+                <select type="" id="steel" onchange="InputAll()">
+                  <option>Ст3пс4, Ст3пс2, Ст3сп4, Ст3сп2</option>
+                  <option selected>09Г2С-4, 09Г2С-6</option>
+                </select>
+              </td>
+              <td class="secondTd">
+                <a href="tabG7.htm" target="_black">?</a>
+              </td>
+            </tr>
+          </table>
+        </fieldset>
+        <fieldset>
+          <legend>Бетон</legend>
+          <table>
+            <tr>
+              <td title="Класс бетона" class="firstTd">Класс</td>
+              <td>
+                <select type="" id="classB" onchange="InputAll()">
+                  <option>B10</option>
+                  <option>B12.5</option>
+                  <option selected>B15</option>
+                  <option>B20</option>
+                  <option>B25</option>
+                  <option>B30</option>
+                </select>
+              </td>
+              <td class="secondTd"></td>
+            </tr>
+          </table>
+        </fieldset>
+        <fieldset>
+          <legend>Коэффициент</legend>
+          <table>
+            <tr>
+              <td title="Коэффициент k0" class="firstTd">k<sub>0</sub></td>
+              <td>
+                <select type="" id="k0" onchange="InputAll()">
+                  <option>1.05</option>
+                  <option selected>1.18</option>
+                  <option>1.35</option>
+                </select>
+              </td>
+              <td class="secondTd"></td>
+            </tr>
+          </table>
+        </fieldset>
+        <fieldset>
+          <legend>Динам. нагрузка</legend>
+          <table>
+            <tr>
+              <td class="firstTd">
+                <input type="checkbox" id="alphaCheck" onchange="InputAll()" />
+              </td>
+              <td>Проверка</td>
+              <td class="secondTd"></td>
+            </tr>
+            <tr id="alphaCheckTD" hidden>
+              <td title="Коэффициент &alpha;" class="firstTd">&alpha;</td>
+              <td>
+                <select type="" id="alpha" onchange="InputAll()">
+                  <option>3.15</option>
+                  <option selected>2.25</option>
+                  <option>1.57</option>
+                  <option>1.25</option>
+                  <option>1</option>
+                </select>
+              </td>
+              <td class="secondTd">
+                <a href="tabG73.htm" target="_black">?</a>
+              </td>
+            </tr>
+          </table>
+        </fieldset>
+      </div>
+      <div class="empty"></div>
+      <p class="title03">Результаты расчёта</p>
+      <div id="calcRes"></div>
+    </div>
+  </body>
+</html>
